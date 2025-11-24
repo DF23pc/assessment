@@ -13,20 +13,29 @@ assessmentButton.addEventListener(
       return;
     }
     
-    
-    resultDivision.innerText = '';
-    
     //診断結果表示エリアの作成
-    const header = document.createElement('h3');
-    header.innerText = '診断結果';
-    resultDivision.appendChild(header);
+    resultDivision.innerText = '';
+
+     // headerDivision の作成
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class','card-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
+    // bodyDivision の作成
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class','card-body');
 
     const paregraph = document.createElement('p');
+    paregraph.setAttribute('class','card-text');
     const result = assessment(userNeme);
     paregraph.innerText = result;
-    resultDivision.appendChild(paregraph);
+    bodyDivision.appendChild(paregraph);
 
+    // resultDivision に Bootstrap のスタイルを適用する
+    resultDivision.setAttribute('class','card');
     
+    // headerDivision と bodyDivision を resultDivision に差し込む
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
     
     //ツイートエリアの作成
     tweetDivision.innerText = '';
