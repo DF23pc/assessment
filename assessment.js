@@ -86,24 +86,30 @@ const answers = [
 ];
 /**
  * 名前の文字列を渡すと診断結果を返す関数
+ * 特定の名前は特別な文章を返す
  * @parem {string} userNeme ユーザーの名前
  * @retutn {string} 診断結果
  */
 function assessment(userNeme) {
-  //全文字のコードを取得してそれを足し合わせる
-  let sum0fCharCode = 0;
-  for (let i = 0; i < userNeme.length; i++){
-    sum0fCharCode = sum0fCharCode + userNeme.charCodeAt(i);
-  }
-
-  // 文字のコード番号の合計を回答の数で割って添字の数値を求める
-  const index = sum0fCharCode % answers.length;
-  let result = answers[index];
-
-  //文章に名前を入れる
-  result = result.replaceAll('###userName###',userNeme);
-
-  return result;
+  //DF23だけ別の結果を送る
+  if (userNeme === "DF23")
+    result = "テスト"
+    return result;
+  else
+    //全文字のコードを取得してそれを足し合わせる
+    let sum0fCharCode = 0;
+    for (let i = 0; i < userNeme.length; i++){
+      sum0fCharCode = sum0fCharCode + userNeme.charCodeAt(i);
+    }
+  
+    // 文字のコード番号の合計を回答の数で割って添字の数値を求める
+    const index = sum0fCharCode % answers.length;
+    let result = answers[index];
+  
+    //文章に名前を入れる
+    result = result.replaceAll('###userName###',userNeme);
+  
+    return result;
 }
 
 //テストを行う関数 開始 - - - - - - - - - - -
