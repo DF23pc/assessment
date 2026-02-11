@@ -105,7 +105,7 @@ function assessment(userNeme) {
     
     // 文字のコード番号の合計を回答の数で割って添字の数値を求める
     const index = sum0fCharCode % answers.length;
-    result = answers[index];
+    let result = answers[index];
     
     //文章に名前を入れる
     result = result.replaceAll('###userName###',userNeme);
@@ -147,6 +147,7 @@ function test() {
 
 test();
 //テストを行う関数 終了 - - - - - - - - - - -
+
 
 
 
